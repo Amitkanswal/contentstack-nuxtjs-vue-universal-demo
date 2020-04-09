@@ -30,7 +30,7 @@
             :key="head.title"
             class="page-scroll"
           >
-            <a :href="head.hash_link">{{
+            <a :href="'#'+head.hash_link">{{
               head.title
             }}</a>
           </li>

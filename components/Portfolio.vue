@@ -13,7 +13,7 @@
               type="button"
               data-toggle="dropdown"
             >
-              Filter By <span class="caret"></span>
+              Filter By
             </button>
             <ul class="dropdown-menu ">
               <li
@@ -21,7 +21,7 @@
                 :key="i"
                 class="dropdown-list"
                 :value="val"
-                
+                @click="handleClick"
               >
                 {{ val }}
               </li>
@@ -66,9 +66,21 @@ export default {
   data() {
     return {
       portfolios: this.entry.portfolio.portfolo_details,
-      filter: ""
     };
   },
+  methods:{
+    handleClick:(e)=>{
+      console.log(e.target.innerText);
+          switch (e.target.innerText) {
+      case 'A-Z':
+        this.portfolios = _.orderBy(this.portfolios, ['Title'], ['ase'])
+        break
+      case 'Z-A':
+        this.portfolios = _.orderBy(this.portfolios, ['Title'], ['desc'])
+        break
+          }
+    }
+  }
 }
 </script>
 

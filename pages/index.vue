@@ -24,6 +24,21 @@
 <Gallery :entry="data"/>
 <About :entry="data.about"/>
 <Contact :entry="data.contact" />
+
+    <script src="/javascript/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/javascript/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="/javascript/jqBootstrapValidation.js"></script>
+    <script src="/javascript/contact_me.js"></script>
+    <!-- <script src="/javascript/portfolio.js"></script> -->
+    <!-- Theme JavaScript -->
+    <script src="/javascript/freelancer.min.js"></script>
 </div>
 </template>
 
