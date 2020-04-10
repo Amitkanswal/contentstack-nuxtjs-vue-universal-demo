@@ -3,9 +3,9 @@ const webpack = require("webpack");
 export default {
   mode: 'universal',
  env: {
-  api_key:"blt9a66fc0dee28e4d0",
-  delivery_token:"cs5a93240f5fe18ca95db2a96e",
-  environment:"development"
+  api_key:"YOUR API KEY",
+  delivery_token:"YOUR DELIVERY TOKEN",
+  environment:"YOUR ENVIRONMENT NAME"
   },
   head: {
     meta: [
