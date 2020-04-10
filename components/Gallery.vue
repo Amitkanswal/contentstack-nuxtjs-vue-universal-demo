@@ -38,10 +38,12 @@
                     :alt="gal.gallery_data.images.filename"
                     style="width:100%;"
                   />
-                  <!-- <div
+                  <client-only>
+                  <div
                     v-for="(galBd, i) in gal.gallery_data.gallery_body"
                     :key="i"
-                    style="color:white; margin-left:-450px; margin-top:-800px;"
+                    style="color:white;"
+                    class="carousel-caption d-none d-md-block"
                   >
                     <img
                       :src="galBd.gallery_body.images.url"
@@ -54,11 +56,12 @@
                       :key="ind"
                       class="pager"
                     >
-                      <li class="btn btn-danger" style="margin-right:-400px;">
+                      <li class="btn btn-danger">
                         {{ ctas.links.link.title }}
                       </li>
                     </ul>
-                  </div> -->
+                  </div>
+                  </client-only>
                 </div>
                 <div v-else :key="i" class="item">
                   <img
@@ -66,11 +69,12 @@
                     :alt="gal.gallery_data.images.filename"
                     style="width:100%;"
                   />
-
-                  <!-- <div
+                  <client-only>
+                  <div
                     v-for="(galBd, id) in gal.gallery_data.gallery_body"
                     :key="id"
-                    style="color:white; margin-left:-450px; margin-top:-800px;"
+                    style="color:white;"
+                    class="carousel-caption d-none d-md-block"
                   >
                     <img
                       :src="galBd.gallery_body.images.url"
@@ -83,11 +87,12 @@
                       :key="ind"
                       class="pager"
                     >
-                      <li class="btn btn-danger" style="margin-right:-600px;">
+                      <li class="btn btn-danger">
                         {{ cta.links.link.title }}
                       </li>
                     </ul>
-                  </div> -->
+                  </div>
+                  </client-only>
                 </div>
               </template>
             </div>

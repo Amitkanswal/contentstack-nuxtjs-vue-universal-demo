@@ -13,7 +13,7 @@
               type="button"
               data-toggle="dropdown"
             >
-              Filter By
+              Filter By <span class="caret"></span>
             </button>
             <ul class="dropdown-menu ">
               <li
@@ -61,29 +61,44 @@
 </template>
 
 <script>
+import _ from "lodash"
 export default {
   props: ["entry"],
   data() {
     return {
       portfolios: this.entry.portfolio.portfolo_details,
-    };
+      // filter:""
+    }
+  },
+  computed:{
+    // filter:()=>{
+
+    // }
   },
   methods:{
-    handleClick:(e)=>{
-      console.log(e.target.innerText);
-          switch (e.target.innerText) {
+    
+    handleClick(e){
+                 switch (e.target.innerText) {
       case 'A-Z':
-        this.portfolios = _.orderBy(this.portfolios, ['Title'], ['ase'])
+        this.portfolios = this.portfolios.sort()
         break
       case 'Z-A':
-        this.portfolios = _.orderBy(this.portfolios, ['Title'], ['desc'])
+         this.portfolios = this.portfolios.reverse()
         break
+        default:
+      this.portfolios = entry.portfolio.portfolo_details
           }
     }
-  }
+    }
 }
 </script>
 
 <style>
-
+.dropdown-list:hover{
+  background-color: coral;
+}
+.dropdown-list:active{
+  background-color: coral;
+  opacity: 0.7;
+}
 </style>

@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require("webpack");
 export default {
   mode: 'universal',
  env: {
@@ -38,7 +39,7 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: 'green' },
+  loading: { color: 'coral' },
   /*
   ** Global CSS
   */
@@ -47,6 +48,14 @@ export default {
   /*
   ** Plugins to load before mounting the App
   */
+ build: {
+  vendor: ["lodash"],
+  plugins: [
+  new webpack.ProvidePlugin({
+  "_": "lodash"
+  })
+  ]
+  },
   // plugins: [ '~/plugins/bootstrap-vue.js'],
   /*
   ** Nuxt.js dev-modules
