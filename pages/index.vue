@@ -129,6 +129,7 @@ export default {
  async asyncData({store}){
    const res =await Stack.getEntry("sample_home")
   store.commit('setEntries',res)
+  store.commit('setFilter',res.portfolio.portfolo_details)
   return{data : res}
  },
 layout:'Layout',

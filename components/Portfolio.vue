@@ -32,7 +32,7 @@
       <!-- <span>{{ filter }}</span> -->
       <div class="row">
         <div
-          v-for="(folio, i) in portfolios"
+          v-for="(folio, i) in filter"
           :key="i"
           class="col-sm-4 portfolio-item"
         >
@@ -57,38 +57,47 @@
         </div>
       </div>
     </div>
+    <!-- <span>{{filter}}</span> -->
   </section>
 </template>
 
 <script>
-import _ from "lodash"
+import orderBy from 'lodash/orderBy'
+// import {mapState } from 'vuex' 
 export default {
   props: ["entry"],
   data() {
     return {
-      portfolios: this.entry.portfolio.portfolo_details,
-      // filter:""
+      portfolios: "",
+      filter:[]
     }
   },
-  computed:{
-    // filter:()=>{
-
-    // }
-  },
+//  computed:  mapState(['filter']),
   methods:{
     
     handleClick(e){
-                 switch (e.target.innerText) {
-      case 'A-Z':
-        this.portfolios = this.portfolios.sort()
+      this.portfolios = e.target.innerText
+      console.log((this.filter));
+       
+    }
+    },
+    mounted(){
+      this.filter= this.entry.portfolio.portfolo_details
+    },
+    watch:{
+      portfolios:function(val){
+           switch (val) {
+      //
+        case 'A-Z':
+          this.filter = orderBy(this.filter, ["title"], ["ase"])
         break
       case 'Z-A':
-         this.portfolios = this.portfolios.reverse()
+        this.filter = orderBy(this.filter, ["title"], ["desc"]);
         break
         default:
-      this.portfolios = entry.portfolio.portfolo_details
+          this.filter =  this.entry.portfolio.portfolo_details
           }
-    }
+      }
     }
 }
 </script>
